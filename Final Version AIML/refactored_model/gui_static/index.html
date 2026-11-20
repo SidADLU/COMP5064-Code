@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exemplar Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><h1>Exemplar Generator</h1><span class="sub">seed-and-edit molecule generator for a disease / target</span></div>
+  <div id="jobbar" class="jobbar" hidden>
+    <span id="jobtext"></span>
+    <button id="cancel" class="btn small danger" type="button">Cancel</button>
+  </div>
+</header>
+<div id="demo" class="banner demo" hidden>DEMO MODE: every result on this page is made up. Nothing real is computed.</div>
+<div id="warn" class="banner warn" hidden></div>
+
+<nav class="tabs" role="tablist">
+  <button class="tab on" data-tab="pipeline" role="tab">Pipeline</button>
+  <button class="tab" data-tab="context" role="tab">New context</button>
+  <button class="tab" data-tab="runs" role="tab">Runs</button>
+</nav>
+
+<main>
+<!-- PIPELINE -->
+<section id="tab-pipeline" class="panel">
+  <div class="grid">
+    <form id="form" class="card" autocomplete="off">
+      <h2>1. Request</h2>
+      <label>Target
+        <select id="target_key"></select>
+      </label>
+      <p id="trustnote" class="note"></p>
+      <div id="bestbox" class="best"></div>
+      <div id="customrow" class="row2" hidden>
+        <label>Disease <input id="disease" type="text" placeholder="e.g. Malaria"></label>
+        <label>Target <input id="target" type="text" placeholder="e.g. T89515"></label>
+      </div>
+      <div class="row3">
+        <label>Molecules <input id="n" type="number" min="1" max="500" value="50"></label>
+        <label>Temperature <input id="temperature" type="number" min="0.1" max="1.5" step="0.05" value="0.7"></label>
+        <label>Seed <input id="seed" type="number" min="0" value="0"></label>
+      </div>
+      <label>Model checkpoint
+        <select id="checkpoint"></select>
+      </label>
+      <label>Continue an earlier run (to dock or check its molecules)
+        <select id="resume_run"><option value="">New run</option></select>
+      </label>
+
+      <h2>2. Stages</h2>
+      <div id="stages" class="stages"></div>
+      <div id="trainbox" class="trainbox" hidden>
+        <label>Base model (the pretrained model the new one starts from)
+          <select id="pretrained"></select>
+        </label>
+        <div class="row2">
+          <label>Steps <input id="train_steps" type="number" min="100" value="6000"></label>
+          <label>Output name <input id="train_out" type="text" value="gui_trained"></label>
+        </div>
+        <label>Held-out targets <input id="holdout" type="text" value="T89515 T31391 T27812 T52522 T45993"></label>
+        <p class="note">Held-out targets: the default is the five named targets of the shipped held-out model (the three study targets plus T52522 and T45993); the training script adds 12 more by a seeded random draw, so the same five names give the same 17 held-out targets.</p>
+        <p class="note">Training time depends on the GPU: about 13 minutes for 6,000 steps on the study machine (measured 5 Nov 2026), so allow longer on a slower GPU or on the CPU. The new model is saved as <code>checkpoint_exemplar_&lt;name&gt;.pt</code>; an existing file is never overwritten (the stage is skipped). To use a rebuilt base model, make it with <code>pretrain_base_model.py</code> (it is saved as <code>checkpoint_pretrained_rebuild.pt</code> and then appears in the list above).</p>
+      </div>
+      <div class="actions">
+        <button id="run" class="btn primary" type="submit">Run selected stages</button>
+        <span id="formerr" class="err"></span>
+      </div>
+    </form>
+
+    <div class="col">
+      <div class="card">
+        <h2>Progress</h2>
+        <div id="progress" class="progress"><p class="muted">Nothing has run yet.</p></div>
+        <details open><summary>Log</summary><pre id="log" class="log"></pre></details>
+      </div>
+    </div>
+  </div>
+  <div id="results-pipeline" class="results"></div>
+</section>
+
+<!-- NEW CONTEXT -->
+<section id="tab-context" class="panel" hidden>
+  <div class="grid">
+    <form id="ctxform" class="card" autocomplete="off">
+      <h2>New disease / target</h2>
+      <p class="note">Give a few known ligands of a disease and target that are not in the library. The model writes analogs of them; no retraining is involved. Docking is not offered: a new target has no validated receptor.</p>
+      <div class="row2">
+        <label>Disease <input id="c_disease" type="text" placeholder="e.g. Coronavirus" required></label>
+        <label>Target <input id="c_target" type="text" placeholder="e.g. Tx12345" required></label>
+      </div>
+      <label>Known ligands (one SMILES per line)
+        <textarea id="c_smiles" rows="7" placeholder="CC(=O)Oc1ccccc1C(=O)O&#10;..."></textarea>
+      </label>
+      <label>or a CSV file (columns Disease Entry, Targets for Drug, Canonical Smiles)
+        <input id="c_file" type="file" accept=".csv,text/csv">
+      </label>
+      <div class="row3">
+        <label>Molecules <input id="c_n" type="number" min="1" max="500" value="30"></label>
+        <label>Temperature <input id="c_temperature" type="number" min="0.1" max="1.5" step="0.05" value="0.7"></label>
+        <label>Seed <input id="c_seed" type="number" min="0" value="0"></label>
+      </div>
+      <label>Model checkpoint <select id="c_checkpoint"></select></label>
+      <div class="actions"><button class="btn primary" type="submit">Generate</button><span id="c_err" class="err"></span></div>
+    </form>
+    <div class="col"><div class="card"><h2>Progress</h2><div id="c_progress" class="progress"><p class="muted">Nothing has run yet.</p></div><details open><summary>Log</summary><pre id="c_log" class="log"></pre></details></div></div>
+  </div>
+  <div id="results-context" class="results"></div>
+</section>
+
+<!-- RUNS -->
+<section id="tab-runs" class="panel" hidden>
+  <div class="card"><h2>Earlier runs</h2><div id="runlist"></div></div>
+  <div id="results-runs" class="results"></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

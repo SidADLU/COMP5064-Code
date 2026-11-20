@@ -1,0 +1,5 @@
+step,seed,smiles,status,heavy_atoms,score,percentile,reward,similarity_to_seed,nearest_library_similarity
+1,CC1=CC=C(C=C1)SC2=CC=CC3=C2C(=NC(=N3)N)N,Cc1cc(F)ccc1Sc1cccc2c(=O)n(CN)ccc12,docked,22,-9.427,0.9493,0.9493,0.185,0.281
+1,CN(CC1=COC2=NC(=NC(=C12)N)N)C3=CC=C(C=C3)C(=O)NC(CCC(=O)O)C(=O)O,Cn1cc(-c2nc(N)nc(N)c2C(=O)O)c2ccccc21,docked,21,-8.404,0.7754,0.7754,0.21,0.426
+1,C1=CC(=C(C(=C1)Cl)C2=NC3=NC(=NC(=C3N2)N)N)Cl,CC1=C(C(=C(C(=N1)N)N)C2=NC3=C(C=C(C=C3)Cl)Cl)C(=N2)N)C,invalid,,,,0.0,,
+1,C1=CN=CC=C1C2=NC3=NC(=NC(=C3N2)N)N,C1=CC=C(C=C1)C2=NN3C(=NC(=N3)N)N)N=C2,invalid,,,,0.0,,

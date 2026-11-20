@@ -1,0 +1,20 @@
+[
+ {
+  "label": "DPP4-2ONC",
+  "case": "diabetes",
+  "pdbqt": "rec_DPP4-2ONC.pdbqt",
+  "center": [
+   -41.838,
+   -18.171,
+   15.258
+  ],
+  "size": [
+   17.992,
+   17.206,
+   17.528
+  ],
+  "crystal_ligand": "DPP4-2ONC_ligand.pdb",
+  "in_ensemble": true,
+  "reference": "N#Cc1ccccc1Cn1c(nc2ccccc2c1=O)N1CCCC(N)C1"
+ }
+]

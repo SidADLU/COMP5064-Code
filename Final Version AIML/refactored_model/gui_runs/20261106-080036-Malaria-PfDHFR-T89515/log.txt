@@ -1,0 +1,169 @@
+--- Generate molecules
+$ python generate_for_request.py --checkpoint C:\Users\sidha\Desktop\Final Version AIML\refactored_model\checkpoint_exemplar_rl_r3_pfdhfr_tuned.pt --n 100 --temperature 0.7 --seed 2 --target T89515 --out C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\gen.csv
+[data] 42938 CSV rows; 17844 without a usable SMILES; 25094 usable
+[library] {'molecules': 22870, 'targets': 2056, 'diseases': 1219, 'pairs': 5581, 'pairs_ge3': 547}
+[request] no disease + target 'T89515'
+[seeds]   target   pool: 59 ligands
+[library] fingerprinting the library (one-off, ~10-30 s) ...
+  round 1: 100/100 kept  ({'generated': 134, 'invalid': 31, 'known_or_duplicate': 3, 'too_far_from_seed': 0})
+
+[done] 100 novel valid molecules written to C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\gen.csv
+       validity 77% | rejected as known or duplicate 3 | temperature 0.7
+       similarity to seed: median 0.50 (analog range 0.40-0.80: 78%)
+--- Random-seed baseline
+$ python generate_for_request.py --checkpoint C:\Users\sidha\Desktop\Final Version AIML\refactored_model\checkpoint_exemplar_rl_r3_pfdhfr_tuned.pt --n 100 --temperature 0.7 --seed 2 --random-seeds --target T89515 --exclude-seed-targets T83386,T17345,T19229,T35465,T52227,T02702,T47077 --out C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\gen_baseline.csv
+[data] 42938 CSV rows; 17844 without a usable SMILES; 25094 usable
+[library] {'molecules': 22870, 'targets': 2056, 'diseases': 1219, 'pairs': 5581, 'pairs_ge3': 547}
+[request] RANDOM-SEED BASELINE: seeds drawn from the library's usable ligands (no disease/target conditioning); excluded 133 ligands of ['T89515', 'T83386', 'T17345', 'T19229', 'T35465', 'T52227', 'T02702', 'T47077']
+[seeds]   random_library       pool: 22328 ligands
+[library] fingerprinting the library (one-off, ~10-30 s) ...
+  round 1: 100/100 kept  ({'generated': 161, 'invalid': 51, 'known_or_duplicate': 10, 'too_far_from_seed': 0})
+
+[done] 100 novel valid molecules written to C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\gen_baseline.csv
+       validity 68% | rejected as known or duplicate 10 | temperature 0.7
+       similarity to seed: median 0.44 (analog range 0.40-0.80: 54%)
+--- Dock at the validated receptor
+$ python dock_generated.py --cases malaria_t89515 --n 100 --gen-pattern C:/Users/sidha/Desktop/Final Version AIML/refactored_model/gui_runs/20261106-080036-Malaria-PfDHFR-T89515/gen.csv --cache dock_cache_v2.jsonl --out C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\dock_results.csv --summary C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\dock_summary.json --baseline --baseline-pattern C:/Users/sidha/Desktop/Final Version AIML/refactored_model/gui_runs/20261106-080036-Malaria-PfDHFR-T89515/gen_baseline.csv
+[self-test] pharmacophore rule OK on 12 known compounds
+[library] 25388 rows with a usable SMILES, 8083 clinical-stage
+[cache] 1522 earlier dockings in dock_cache_v2.jsonl
+[Protonation] self-test passed
+[set] generated malaria_t89515: 78 dockable of 100 in gen.csv  (skipped: seed lacks the pharmacophore 18, analog of a dropped seed 4);  seeds that are T89515 ligands: 100%
+[set] RANDOM-SEED BASELINE malaria_t89515: 97 dockable of 100 in gen_baseline.csv  (skipped: size 2, seed carries the pharmacophore 1);  seeds that are T89515 ligands: 0%
+
+[calibration] PfDHFR (case malaria_t89515, target T89515; actives: all stages)
+   [calibration set] 63 library rows carry ['T89515']; 9 clinical-stage; 36 usable (ALL stages); 4 dropped by name; 18 lack the pharmacophore; using 36 + 10/10 curated actives  [curated 10, clinical 1, research 35]
+   [calibration set] 0 candidate decoys dropped as close analogs of an active; pool 2223
+   [calibration set] 46 actives / 138 decoys; median heavy atoms 21.0 vs 22.0
+   known actives, best score first   (score | heavy atoms | percentile among decoys, size-corrected | stratum | name):
+        -9.88 |  25 | 0.98 | rese | Sri-9439
+        -9.79 |  33 | 0.96 | cura | (curated active)
+        -9.60 |  32 | 0.94 | cura | (curated active)
+        -9.53 |  35 | 0.91 | cura | (curated active)
+        -9.45 |  32 | 0.91 | rese | Furo[2,3d]Pyrimidine Antifolat
+        -9.43 |  34 | 0.90 | rese | Edatrexate
+        -9.43 |  17 | 0.96 | cura | (curated active)
+        -9.35 |  24 | 0.94 | cura | (curated active)   <- co-crystal ligand
+        -9.32 |  20 | 0.95 | rese | 6-Phenylaminomethyl-quinazolin
+        -9.32 |  31 | 0.90 | rese | Brodimoprim-4,6-Dicarboxylate
+        -9.32 |  32 | 0.90 | rese | GNF-PF-173
+        -9.31 |  20 | 0.94 | rese | N*6*-Benzyl-quinazoline-2,4,6-
+        -9.27 |  20 | 0.94 | rese | 5-p-Tolylsulfanyl-quinazoline-
+        -9.13 |  20 | 0.91 | rese | 5-Phenethyl-quinazoline-2,4-di
+        -9.07 |  22 | 0.90 | rese | Bromo-WR99210
+        -8.91 |  17 | 0.90 | clin | Metoprine
+        -8.88 |  15 | 0.90 | rese | 7H-Pyrrolo[3,2-f]quinazoline-1
+        -8.86 |  26 | 0.84 | rese | GNF-PF-607
+        -8.85 |  27 | 0.84 | cura | (curated active)
+        -8.78 |  21 | 0.85 | rese | 8-(2,5-dimethoxyphenyl)-9H-pur
+        -8.74 |  17 | 0.87 | cura | (curated active)
+        -8.71 |  20 | 0.85 | rese | 5-((E)-Styryl)-quinazoline-2,4
+        -8.63 |  21 | 0.83 | rese | 5-(2-fluorobenzyloxy)quinazoli
+        -8.63 |  21 | 0.83 | rese | 8-(3,5-dimethoxyphenyl)-9H-pur
+        -8.63 |  21 | 0.82 | rese | 5-(4-Methoxyphenoxy)-2,4-Quina
+        -8.50 |  19 | 0.80 | rese | 5-Phenylsulfanyl-2,4-Quinazoli
+        -8.46 |  22 | 0.78 | rese | 4-(2,6-diamino-9H-purin-8-yl)-
+        -8.45 |  24 | 0.76 | rese | 6,7-Diphenyl-pteridine-2,4-dia
+        -8.42 |  18 | 0.80 | rese | 8-benzyl-9H-purine-2,6-diamine
+        -8.42 |  20 | 0.78 | rese | 6-Phenylsulfanylmethyl-pteridi
+        -8.41 |  21 | 0.78 | rese | 6-(2-Phenylsulfanyl-ethyl)-pte
+        -8.36 |  16 | 0.80 | rese | 7-Methyl-7H-pyrrolo[3,2-f]quin
+        -8.11 |  25 | 0.65 | rese | Sri-9662
+        -8.02 |  19 | 0.67 | rese | 8-(2,6-Dichloro-phenyl)-9H-pur
+        -7.93 |  20 | 0.65 | cura | (curated active)
+        -7.87 |  20 | 0.60 | rese | 6-m-Tolyl-pteridine-2,4,7-tria
+        -7.80 |  21 | 0.55 | cura | (curated active)
+        -7.78 |  23 | 0.51 | rese | 8-(3,4,5-trimethoxyphenyl)-9H-
+        -7.76 |  17 | 0.59 | rese | 8-Pyridin-4-yl-9H-purine-2,6-d
+        -7.76 |  21 | 0.54 | rese | 8-(3,4-dimethoxyphenyl)-9H-pur
+        -7.74 |  19 | 0.55 | rese | 8-(3,4-dichlorophenyl)-9H-puri
+        -7.58 |  19 | 0.43 | cura | (curated active)
+        -7.57 |  21 | 0.41 | rese | 8-(2,4-dimethoxyphenyl)-9H-pur
+        -7.07 |  23 | 0.19 | rese | 8-(2,3,4-trimethoxyphenyl)-9H-
+        -7.00 |  23 | 0.18 | rese | 8-(2,4,5-trimethoxyphenyl)-9H-
+        -6.88 |  23 | 0.16 | rese | 8-(2,4,6-trimethoxyphenyl)-9H-
+   decoys: score min -10.16, median -7.72, max -5.42   (an active that scores worse than the decoy median is a miss)
+   -> DECISION SET: research stratum only (n 35, 138 decoys): AUC 0.72 +/- 0.05 (usable); size-corrected AUC 0.73 +/- 0.05; EF20 1.69; median score -8.50 vs decoys -7.72
+      (all 46 actives together: AUC 0.74, size-corrected 0.75; rule: >= 15 research actives, AUC >= 0.70 with AUC - SE > 0.5, size-corrected >= 0.60)
+   -> size-corrected AUC by stratum: curated 0.81 (n 10), clinical nan (n 1), research 0.73 (n 35);  decision set without the co-crystal ligand 0.73 (n 35)
+   -> receptor TRUSTED
+   -> score reproducibility: mean |difference| 0.01 kcal/mol over 3 re-docked actives (noise is small)
+   [generated molecules, seeds] 175 dockings to do (78 already cached)
+      [1/175] PfDHFR      -9.03  (20s; ~59 min left)
+      [2/175] PfDHFR      -8.26  (25s; ~66 min left)
+      [10/175] PfDHFR      -9.80  (10s; ~62 min left)
+      [20/175] PfDHFR      -7.55  (28s; ~67 min left)
+      [30/175] PfDHFR      -7.96  (6s; ~74 min left)
+      [40/175] PfDHFR      -8.40  (11s; ~63 min left)
+      [50/175] PfDHFR      -9.14  (14s; ~59 min left)
+      [60/175] PfDHFR      -9.40  (8s; ~50 min left)
+      [70/175] PfDHFR      -8.22  (12s; ~48 min left)
+      [80/175] PfDHFR      -8.55  (6s; ~41 min left)
+      [90/175] PfDHFR      -9.04  (5s; ~35 min left)
+      [100/175] PfDHFR      -5.61  (3s; ~31 min left)
+      [110/175] PfDHFR      -6.62  (22s; ~32 min left)
+      [120/175] PfDHFR      -7.01  (3s; ~31 min left)
+      [130/175] PfDHFR      -7.85  (33s; ~26 min left)
+      [140/175] PfDHFR      -8.18  (9s; ~21 min left)
+      [150/175] PfDHFR      -7.23  (16s; ~14 min left)
+      [160/175] PfDHFR      -5.75  (20s; ~8 min left)
+      [170/175] PfDHFR      -7.63  (194s; ~3 min left)
+      [175/175] PfDHFR      -6.87  (126s; ~0 min left)
+
+======================================================================================================================
+1. RECEPTOR CALIBRATION   (can Vina tell known binders from property-matched decoys in this pocket?  AUC 0.5 = no)
+======================================================================================================================
+   receptor  status                      AUC   size-corr. AUC  EF20  n act/dec redock ref   trusted
+   PfDHFR    usable                0.72+/-0.05       0.73+/-0.05  1.69     46/138       -9.3   YES
+        decision set: research stratum only (n 35);  size-corrected AUC by stratum: curated 0.81 (n 10) | clinical nan (n 1) | research 0.73 (n 35);  without co-crystal ligand 0.73
+        all 46 actives together: AUC 0.74, size-corrected 0.75  (descriptive only; the decision uses the research stratum)
+
+======================================================================================================================
+2. EACH GENERATED SET AT ITS OWN RECEPTOR   (size-corrected: residual of score ~ heavy atoms, fitted on that receptor's decoys)
+   AUC = chance a generated molecule beats a decoy (0.5 = no better).  'actives' row = the same number for the known binders (the ceiling).
+======================================================================================================================
+
+  Malaria (target-level seeds) / T89515 -> PfDHFR
+      n docked 78;  mean heavy atoms 24.9 (decoys 22.0, actives 21.0)
+                  mean score  size-corr. AUC  raw AUC  mean LE
+      generated        -8.43     0.70 [0.63-0.77]  0.71    0.358
+      actives          -8.50     0.73               0.72    0.395   <- ceiling (the known binders)
+      decoys           -7.72     0.50               0.50    0.359
+      median percentile of a generated molecule among the decoys: 0.73  (0.5 = typical decoy)
+      descriptive split (the pharmacophore is the one thing the calibration rewards):  with the pharmacophore: n 75, size-corrected AUC 0.71;  without it: n 3
+      SIZE WARNING: the decoys span 15-38 heavy atoms; 4 of 78 generated molecules lie outside that (+-2), where the size correction is an extrapolation.
+      in-range molecules only (n=74): size-corrected AUC 0.72 [0.66-0.79]
+      seeds (37 distinct): mean score -8.56, size-corrected AUC vs decoys 0.74, median percentile 0.82   (do the seeds themselves look like binders here?)
+      PAIRED analog - seed (n=78): mean size-corrected difference +0.12 kcal/mol [-0.52 to +0.68 IQR],  analogs better than their seed: 54%;  Spearman(similarity to seed, |difference|) = -0.46  (negative = closer analogs score more like their seed)
+      by seed:   seed                         analogs median pct seed pct median sim
+                 8-(3,4-dichlorophenyl)-9H-p        3       0.67     0.55       0.53
+                 5-(4-Methoxyphenoxy)-2,4-Qu        3       0.95     0.82       0.45
+                 8-(3,4-dimethoxyphenyl)-9H-        3       0.71     0.54       0.46
+                 5-Phenethyl-quinazoline-2,4        3       0.98     0.91       0.64
+                 8-(2,6-Dichloro-phenyl)-9H-        3       0.78     0.67       0.50
+                 5-p-Tolylsulfanyl-quinazoli        3       0.71     0.94       0.56
+                 8-(2,3,4-trimethoxyphenyl)-        3       0.55     0.19       0.50
+                 8-(2,4,6-trimethoxyphenyl)-        3       0.72     0.16       0.48
+                 GNF-PF-607                         2       0.77     0.84       0.49
+                 8-(3,4,5-trimethoxyphenyl)-        2       0.68     0.51       0.50
+                 6,7-Diphenyl-pteridine-2,4-        2       0.57     0.76       0.37
+                 6-Phenylaminomethyl-quinazo        2       0.96     0.95       0.60
+                 8-(2,4,5-trimethoxyphenyl)-        2       0.54     0.18       0.55
+                 4-(2,6-diamino-9H-purin-8-y        2       0.64     0.78       0.49
+      RANDOM-SEED BASELINE (same model, seeds from the whole library, none of this target's): n docked 97, mean heavy atoms 26.4, mean score -7.56, size-corrected AUC vs decoys 0.46 [0.38-0.54]
+      CONDITIONED vs BASELINE: chance a target-conditioned molecule beats a random-seed one (size-corrected): 0.69 [0.61-0.77]  -> conditioning gives better-docking molecules here (the seeds are known binders: see the paired analog-vs-seed line for what the model adds)
+
+======================================================================================================================
+4. VERDICT  (thresholds are my judgement: PASS = size-corrected AUC >= 0.65 with the 95% interval above 0.5; PARTIAL >= 0.55)
+======================================================================================================================
+   Malaria (target-level seeds)T89515 / PfDHFR   PASS (size-corrected AUC 0.70, CI 0.63-0.77)
+
+   Roadmap outcome per case  (RL is only needed if generated molecules cannot be told apart from random ones at a TRUSTED receptor):
+   Malaria (target-level seeds)T89515  C: generated molecules dock like binders -> RL not needed
+   Caveats: Vina is a crude ranking tool; decoys are 'unrelated by label', not guaranteed non-binders; the generated molecules come from a model
+   that saw these targets in training; n per set is small, so read the intervals, not the point estimates.  Docking says nothing about the model's
+   conditioning itself, only about whether its output looks like binders at a receptor that passed calibration.
+
+   per-molecule results: C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\dock_results.csv   summary: C:\Users\sidha\Desktop\Final Version AIML\refactored_model\gui_runs\20261106-080036-Malaria-PfDHFR-T89515\dock_summary.json   cache: dock_cache_v2.jsonl
+[GUI note] the docking stage finished normally.  Any PASS / FAIL / PARTIAL verdict above judges the generated SET against the decoys, it is not a job error.  78 generated molecule(s) were docked.
+=== done

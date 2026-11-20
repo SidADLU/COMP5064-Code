@@ -1,0 +1,559 @@
+{
+ "built": "2026-11-06 07:43",
+ "builder_python": "3.13.14",
+ "project_folder": "refactored_model",
+ "rl": "adopt",
+ "lean": false,
+ "files": [
+  {
+   "path": "refactored_model/config.py",
+   "size": 4519,
+   "sha256": "c4688a100fedeab18b9b8bed16e27b1123ec98f91d7860d3739feab490d4280b"
+  },
+  {
+   "path": "refactored_model/targets.py",
+   "size": 8050,
+   "sha256": "d1ccbfc6fed05ad3de19110db0d4a2ce5be0e5b12b6e3b24351e6c11c9c15663"
+  },
+  {
+   "path": "refactored_model/base_data.py",
+   "size": 14070,
+   "sha256": "c07d159b2b60e1fd54b8841eeea3f5e5cb8c7fb4bbf9ad600435ff06f0320a83"
+  },
+  {
+   "path": "refactored_model/base_model.py",
+   "size": 15666,
+   "sha256": "2445faefcab7537f46d9b46f7fc83eb4775f4e661b200c57232513a7bbbbbc1d"
+  },
+  {
+   "path": "refactored_model/base_train.py",
+   "size": 30645,
+   "sha256": "1842939ed65d932930ae4221eecdba20f045f0d538c0c46f850cb84760506094"
+  },
+  {
+   "path": "refactored_model/docking.py",
+   "size": 11755,
+   "sha256": "32edfa22cf75ca7eee0541174cac636829d34fa1df70957a4d61b2c016bc55dd"
+  },
+  {
+   "path": "refactored_model/rl_utils.py",
+   "size": 3425,
+   "sha256": "9d11b1346348a0b138f763bf4ab0e57ab771c20836ac2265c9bb16114a68afde"
+  },
+  {
+   "path": "refactored_model/exemplar_data.py",
+   "size": 23509,
+   "sha256": "ce8696bdbdb2587e2d97834bc46af813a1ad0668ee14c45bf630167a506f3d4c"
+  },
+  {
+   "path": "refactored_model/exemplar_model.py",
+   "size": 30831,
+   "sha256": "7a06121fd6a4926fa6a699d177b2ec44369d98534c2d8f2d39c8d772c6f852c7"
+  },
+  {
+   "path": "refactored_model/train_exemplar_generator.py",
+   "size": 32409,
+   "sha256": "0c128670f480184919951c47ec5ed00c7808cd3fa076efbf64f295a90c2717ca"
+  },
+  {
+   "path": "refactored_model/generate_for_request.py",
+   "size": 17390,
+   "sha256": "7e05eee8ad1cd9b9ceb42db7e904a5a7a75c23f56e35aeb38948b294956dab6d"
+  },
+  {
+   "path": "refactored_model/check_exemplar_conditioning.py",
+   "size": 15137,
+   "sha256": "e263443364fd738e338ed7619eb9373feaab27c91bc4c09a88833ba0c42c94cc"
+  },
+  {
+   "path": "refactored_model/dock_generated.py",
+   "size": 126863,
+   "sha256": "8fdb802851e6babc1f0775b659d53df1615530336b41541f82d91611263c175a"
+  },
+  {
+   "path": "refactored_model/prep_receptors.py",
+   "size": 33554,
+   "sha256": "c97f2f8ecfb5350619aa074ab4f98f998cc42834723d2869d4e6dce2c9f49700"
+  },
+  {
+   "path": "refactored_model/fetch_potency.py",
+   "size": 7481,
+   "sha256": "6ec18dac20db18c668bd7a530f08fab2b1af00fe986c340e9b5988c398e5c906"
+  },
+  {
+   "path": "refactored_model/rule_gen_check.py",
+   "size": 8467,
+   "sha256": "500ec844c526dfd8fba3555fb2a45d386a7ec66c60c978c03f46f8192d6be419"
+  },
+  {
+   "path": "refactored_model/check_refactor.py",
+   "size": 10980,
+   "sha256": "3ce1b1caea5fad332eef3ab6c752f15d4043cf3ac86dc50959811216b38ce4cc"
+  },
+  {
+   "path": "refactored_model/test_hybrid_pairs.py",
+   "size": 16023,
+   "sha256": "ae9d5b32dc0fe7a4cc07c8ca8f1c4c2e3cc732936ac041698ef6f9f0852b26f4"
+  },
+  {
+   "path": "refactored_model/test_new_context.py",
+   "size": 11825,
+   "sha256": "bb88e814ed123cb71a0535ede7a38c71f074b5e6c1626a10a820277f39b3fd04"
+  },
+  {
+   "path": "refactored_model/gui_server.py",
+   "size": 11770,
+   "sha256": "13bfde6b085e727d4612c2d7483ca0aa46cc49cddd09233938538ba554b79483"
+  },
+  {
+   "path": "refactored_model/gui_backend.py",
+   "size": 45357,
+   "sha256": "f2b50ced753db2835c44ec7a6467ef9694b3b08225247bdecbab7cd26428d43a"
+  },
+  {
+   "path": "refactored_model/check_portable.py",
+   "size": 15750,
+   "sha256": "849b61922d3824be7dda260ecf6357807205d3ba8eadb4dc41cc92301a3537c8"
+  },
+  {
+   "path": "refactored_model/make_portable_zip.py",
+   "size": 28427,
+   "sha256": "afaddd605e2a547a79f8db2f0c3d6ff7030f3784ad0c673f641771007a80a2be"
+  },
+  {
+   "path": "refactored_model/pretrain_base_model.py",
+   "size": 8040,
+   "sha256": "b20255dd971bca525932f2a5216469d5063b3986078a3feca70d65f1227a274a"
+  },
+  {
+   "path": "refactored_model/gui_static/app.js",
+   "size": 25604,
+   "sha256": "fa663780f7af7361747bf2a1c36c5d4d3b20a4d6906b40eb949183bdfd1ac1e5"
+  },
+  {
+   "path": "refactored_model/gui_static/index.html",
+   "size": 6123,
+   "sha256": "227cc3eef497cc3d1581a0155afa777eb11daad75d2d1c8819e8294ad5686057"
+  },
+  {
+   "path": "refactored_model/gui_static/style.css",
+   "size": 8869,
+   "sha256": "81fc735b9e9cf1c9033e4ea3c7cb5c696f31ab477db0f5c4b52c6966cc250d94"
+  },
+  {
+   "path": "refactored_model/FROZEN_TRUST_DECISIONS.md",
+   "size": 6753,
+   "sha256": "215df89c215085a845ab8b6bbbd893ba0e536c4f5134b552d6249ecffe275172"
+  },
+  {
+   "path": "refactored_model/REBUILD_FROM_SCRATCH.md",
+   "size": 13230,
+   "sha256": "b51d234307a28e4b5a9491dd4216b534d874596e5c1733157bda46190d56269c"
+  },
+  {
+   "path": "refactored_model/RESULTS_AND_LIMITS.md",
+   "size": 9683,
+   "sha256": "f0c6c175f71cd855c474bd22cf3e3e66e82a3a54c707fdd96785f21f07a3efbc"
+  },
+  {
+   "path": "refactored_model/requirements.txt",
+   "size": 651,
+   "sha256": "a8b9bc4589d07cc7692911bd003cbd9d5026e37c802d656764f92f7b4db704a1"
+  },
+  {
+   "path": "refactored_model/CleanedData.csv",
+   "size": 9424628,
+   "sha256": "6336f695ed375a0097fce94921534fe71e87bce51539314d859eaa7c8774db84"
+  },
+  {
+   "path": "vina.exe",
+   "size": 1233920,
+   "sha256": "e0c4b2715e0c1a74f6e92d0f3be0328ac97542eafbc111e6b1efad897a73cce5"
+  },
+  {
+   "path": "checkpoint_pretrained_v11.pt",
+   "size": 33618125,
+   "sha256": "517e537dd16d956707522846e6dfa754f45a7a2a66b9870877948b2e1f144da0"
+  },
+  {
+   "path": "refactored_model/checkpoint_exemplar_seed_v2.pt",
+   "size": 18760390,
+   "sha256": "6b2dcce707f8b93fc3ddb41a6b99aa5cfaa9e2ae7dde4385e0ca04e4f27357f2"
+  },
+  {
+   "path": "refactored_model/checkpoint_exemplar_seed_v3_holdout.pt",
+   "size": 18780814,
+   "sha256": "53af9b4a425944c84799cd8adb62d9ed5ec843884a35a1e54eaf752ca84e5d9f"
+  },
+  {
+   "path": "refactored_model/DPP4-2ONC_ligand.pdb",
+   "size": 2191,
+   "sha256": "9a389ea902dfeb7be9047261d594af30c33ac18bb9a235dd896dad28470ef8df"
+  },
+  {
+   "path": "depression_ligand.pdb",
+   "size": 1968,
+   "sha256": "ea9d3bbcceb1de25541accdc09980cb7ab9ffca958fcba9ed08e57b1d4a3682a"
+  },
+  {
+   "path": "depression_receptor_raw.pdb",
+   "size": 346122,
+   "sha256": "47036c0d193f6b41b844cf0184475c994abdce029bd0b0ff0782b7bc3917a9da"
+  },
+  {
+   "path": "diabetes_ligand.pdb",
+   "size": 2296,
+   "sha256": "04c1a200046f1f9f31e4c02cfd6eae69c8fef84ae900caf03a6c9b96cb395fa3"
+  },
+  {
+   "path": "diabetes_receptor_raw.pdb",
+   "size": 1080842,
+   "sha256": "8a475dafe4e748826fbb7d7473cc7e77f9ee7d7549d1a51d08ac970d1fda3b2b"
+  },
+  {
+   "path": "refactored_model/extra_dpp4_2onc.json",
+   "size": 336,
+   "sha256": "2fc4d3ba3033af0c90725a8f4f3563e1f4ae5249f58bfbaa138ccf8e019e4c28"
+  },
+  {
+   "path": "falcipain2_receptor_raw.pdb",
+   "size": 671990,
+   "sha256": "4d5f1be90186c3aaa3d7f060e0859483de37c9bf224bccdeb00e3284bd985968"
+  },
+  {
+   "path": "malaria_ligand.pdb",
+   "size": 1968,
+   "sha256": "a0f38c3dd74cd4f93e35c64eb6211b611672bb36514654d2855cb7995e1c8669"
+  },
+  {
+   "path": "malaria_receptor_raw.pdb",
+   "size": 842304,
+   "sha256": "e8312cbc0b032bb183ddaa3dfd2da1300db262f555001d06fb60d55a29ca5917"
+  },
+  {
+   "path": "refactored_model/rec_DPP4-2ONC.pdbqt",
+   "size": 577360,
+   "sha256": "7db7924a1cf9764e3aef8d8dd2a2cd2d7552d86a5624960bdd7fdc7c3ae3105f"
+  },
+  {
+   "path": "rec_depression.pdbqt",
+   "size": 395118,
+   "sha256": "dd25cd2496c6866fe766224226b8f2b30dd8c876af89599d8e867a4fcdd37088"
+  },
+  {
+   "path": "rec_diabetes.pdbqt",
+   "size": 1177902,
+   "sha256": "8919e546586498785da28a5a280e3ee148bdf7c79dcca6217ec7f637c07c426a"
+  },
+  {
+   "path": "rec_falcipain2.pdbqt",
+   "size": 718551,
+   "sha256": "0b4c36de90932f2076098780e85f9a5aa9f8b369e5c8d19823c9ba18469b1ef3"
+  },
+  {
+   "path": "rec_malaria.pdbqt",
+   "size": 922590,
+   "sha256": "8b6f9e477e081842c718c91887cd8ee4bf4ddc31bf94bceb88fa8a239e8e487c"
+  },
+  {
+   "path": "refactored_model/dock_cache_v2.jsonl",
+   "size": 161730,
+   "sha256": "964ffb00d1b8c78ebffb8a922edfaaaa0d46a3e00fdcede4d972e53d9e292852"
+  },
+  {
+   "path": "refactored_model/dock_cache_inter.jsonl",
+   "size": 70764,
+   "sha256": "6bfc9187a9e98e0d82550a08e3ce68be6bf25812e29d8f8be9320edb0a249aaa"
+  },
+  {
+   "path": "refactored_model/rl_pilot/RL_PILOT_README.txt",
+   "size": 26933,
+   "sha256": "b21fc40717cf8b16f2728a025a7b9c73c09f572cd9bf4d6f24bbdc77fa9ae955"
+  },
+  {
+   "path": "refactored_model/rl_pilot/rl_pfdhfr.py",
+   "size": 34041,
+   "sha256": "8ba32598cd4614ec3f1f4742d27a7fb404acb49e58b55a0ab64c10c53b69ce0e"
+  },
+  {
+   "path": "refactored_model/rl_pilot/rl_size_check.py",
+   "size": 11063,
+   "sha256": "810ffe6e4248e6ebf654618d7fb86d7227f7de61c0bd2cb43159eadfcf2e6255"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_cache.jsonl",
+   "size": 37818,
+   "sha256": "4e662b76c6bcc646daa550962e90f4d8086d122f5142a29d667ce4374a31fb32"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_results_pre.csv",
+   "size": 30340,
+   "sha256": "1f70ff2984a0d25a079ce64fb16114326bc84bbf8be5663d2eaf5666cc308958"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_results_pre3.csv",
+   "size": 29036,
+   "sha256": "c028947548716fb56b15642811860e49bbe1b0a17d577e8accfe07b17d20a5c7"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_results_rl.csv",
+   "size": 30722,
+   "sha256": "8a988dd3b3a22c9d64e9c5adbf4d07c60cefa0d44b9c9c02ef34c6dc76e9e43f"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_results_rl3.csv",
+   "size": 30066,
+   "sha256": "d2abf1c390d9bc41997f50059a2d8f6daf5a7a05f0eb2a65b9c3ef8ebd13f82e"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_summary_pre.json",
+   "size": 1494,
+   "sha256": "0be219f8c80715bfe3440939ea2668488d001d911961172ff1ae4cac1f722d69"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_summary_pre3.json",
+   "size": 1491,
+   "sha256": "c67aa51bb218bfdff18352b0732cf860aa18e057fe4d8822162b20d2dc61817b"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_summary_rl.json",
+   "size": 1491,
+   "sha256": "137a6b130486beb7175c3e5066328af258b7902a6fc3e0ffe357aaa54ebe2177"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/dock_summary_rl3.json",
+   "size": 1494,
+   "sha256": "1121f714161ccf1c919bbd2b208b3d7d39e9cbad611bf4227234257cd36c604e"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/eval_cache.jsonl",
+   "size": 175843,
+   "sha256": "4626aa57a6ac03a5bfd7178e34ec13ed954005da4fc9a8d64033c5fa84faaffe"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/gen_malaria_t89515_baseline_rl.csv",
+   "size": 8347,
+   "sha256": "29b4d45f66dd9db8d3cf992dbc55f8d05b3d26abc1685fca9ad079c0d4e13b84"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/gen_malaria_t89515_pre.csv",
+   "size": 7354,
+   "sha256": "03988e89e44691457ebaa49ba1095ed91c2a69fc0839b29df6a2262971a225ad"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/gen_malaria_t89515_pre3.csv",
+   "size": 7718,
+   "sha256": "4c0c7afa292dfa215573f8ee7e8787098bae39b4737e61ac71df887faa9a823b"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/gen_malaria_t89515_rl.csv",
+   "size": 7555,
+   "sha256": "09591337b61fa375fb5014a31b17483f5cc8a00cafa1ddb80dfd6661b5f19f43"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/gen_malaria_t89515_rl3.csv",
+   "size": 7650,
+   "sha256": "ec24d124e5bd34cfbb893dbdd606015fd9cc5e0884fa0e6b048b9848b5f076ba"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/log.csv",
+   "size": 1690,
+   "sha256": "7bf8a90cace451b6b11a8cfacc76ad146414a2bc5d0312ebfb7c6d858766620c"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/molecules.csv",
+   "size": 68993,
+   "sha256": "fc8b6328b44271c1078955dde579970254c08b8369f9c1705707a582709728ad"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r1/summary.json",
+   "size": 1052,
+   "sha256": "47be34710015f5b86082ca5e2c3b77e37b735f51e6bf57ac9a129a960c941838"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/dock_cache.jsonl",
+   "size": 138355,
+   "sha256": "4e7c9ea91c14adc46339eb8c17a90bd81729c0c3053e07f259d57b7f35c9efb7"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/dock_results_rl.csv",
+   "size": 30598,
+   "sha256": "0c0813969583bc84a5bbc28930bfed6ba1f4b1b12fb3ed800fd0576f669040b7"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/dock_summary_rl.json",
+   "size": 1491,
+   "sha256": "ff3fe8ddfa5a01e708d37593cf1de69b9fd0b8e4e119a98fb9ecc24eb35402f4"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/eval_cache.jsonl",
+   "size": 172017,
+   "sha256": "6bca2ca3f1b9295f64088a16b7d17e58f6c904e35aab45cb575e5fdd9f3ef1c1"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/gen_malaria_t89515_rl.csv",
+   "size": 7849,
+   "sha256": "23c09915fbeaa61f89e5a1dac0adc048e1383e3ec925729285c6516dc3ee4fa6"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/log.csv",
+   "size": 4528,
+   "sha256": "6d2293408bab5b0584235cc3ff8979a706bc567d1e2770178146a27417f81277"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/molecules.csv",
+   "size": 206625,
+   "sha256": "1999f9d733398a5a8acd04945784055f664d40afb6540b06e1f9e07b078c878b"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r2/summary.json",
+   "size": 1074,
+   "sha256": "aa473ea141a78215ef6428fb8ad856c2eea2c8a73a7046760bba60db0adaac8c"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_cache.jsonl",
+   "size": 169337,
+   "sha256": "e24ae41a360a6b4e8b45dab785a356b148583dbcab80dea84efb207cb754652a"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_pre3_ex16.csv",
+   "size": 29027,
+   "sha256": "dfec20222b0fc56fee1c21b766855fde8d88d844fd3f48f5b5c96ffb4eace456"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_pre_ex16.csv",
+   "size": 30345,
+   "sha256": "f3616fac0694e856fd19cae4c180c3f6721e171c684dce1b408e4362526ef500"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_s2.csv",
+   "size": 32367,
+   "sha256": "db2dc074eee40f633a95d0815be67ff95db3abb827a45ba4c5a97e37a9fa0ba7"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_s2_ex16.csv",
+   "size": 32349,
+   "sha256": "edc208733384518ccfcf985a64989fd907c4d2270d4d0e4cd5b53755d2c6c557"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_s3.csv",
+   "size": 32325,
+   "sha256": "a00c42a65355784a5705351e6e024e0283c3417aa78e871fe76bf38292ce3947"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_results_s3_ex16.csv",
+   "size": 32313,
+   "sha256": "164cc1b72116d58064b9be399ee9375e4acd46ec0e3d715e61349533d17e8b4b"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_pre3_ex16.json",
+   "size": 1454,
+   "sha256": "a82fa928ef8a8e44b03b31e94d9e79221d75eb71a711c9fa61995df0aac1cc9a"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_pre_ex16.json",
+   "size": 1457,
+   "sha256": "3ca97c8ddc53947cc3b6ad71b8acffe1b552fb9b6f8786580411d97b14ac5f60"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_s2.json",
+   "size": 1491,
+   "sha256": "b86871b49fe2061590028639a02d82ccd5e7023189655a73db1c07e71353bf77"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_s2_ex16.json",
+   "size": 1454,
+   "sha256": "076901b2c8974b59c4a9b71ee113b87877e2210143cf7dea4e7f020f24547cb3"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_s3.json",
+   "size": 1491,
+   "sha256": "59bc206b497d035193896b8425519d6570ec163ae9efbdd93c83e47adacba3ac"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/dock_summary_s3_ex16.json",
+   "size": 1454,
+   "sha256": "267fbe86dbb9309610fdd4476f24d8ec1ccf71a71ab680483eacc8cd20419635"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/eval_cache.jsonl",
+   "size": 187349,
+   "sha256": "f51d96b062c356fd5de23a1ea0aca2dd70f99822b87129421226970a6ce5c646"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/eval_cache_ex16.jsonl",
+   "size": 40390,
+   "sha256": "4d229d783c40847763296d7857fd51c49fa18f3e27acd8d3944b39bec56feec3"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/gen_malaria_t89515_s2.csv",
+   "size": 7820,
+   "sha256": "2e0ee11bc92058241f9f8962508a0959faa4c43a143be96df1ad935a40ab1207"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/gen_malaria_t89515_s3.csv",
+   "size": 8050,
+   "sha256": "09d9d7b2cc1554affc986459434eee30f7b754c4ac3a420fc0c20cf089e6f4ec"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/log.csv",
+   "size": 6421,
+   "sha256": "cded73e7a8038ec3befb3fcf9191d5eb04e47a86f6f3d1e984057f56a15cd2e7"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/molecules.csv",
+   "size": 902961,
+   "sha256": "f4f529f7da17c7842baf4838d1efc4685d42170b1c376dcd52df53a30e3e36ca"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/r3/summary.json",
+   "size": 1187,
+   "sha256": "3c975466c855c53c593967dcd7f9e290375d36728a2ddb1196f79897d73aca38"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke/dock_cache.jsonl",
+   "size": 729,
+   "sha256": "07884bd27a38459d4df0f4b8fcd55723a3dd90edd771e7465d3fa17e10c5ab1d"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke/log.csv",
+   "size": 376,
+   "sha256": "b779898f43e6b2cfb14a2984be25ae8ebe302cfe75a992e29d5c7bec3a3d7a5f"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke/molecules.csv",
+   "size": 1616,
+   "sha256": "4368930f4c81378eb501c494257a41ea56729cff7ce67c83d7f5dcca629392ef"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke/summary.json",
+   "size": 1107,
+   "sha256": "f6ee82a68a07b97e7a73cf4ed42cbe57fc983cf93cb46cd76c83a7363b884ead"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke_real/dock_cache.jsonl",
+   "size": 204,
+   "sha256": "1ca4f727697b9f870436d715544125a5ddb96fad4637d8053d4f8714aedf238f"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke_real/log.csv",
+   "size": 252,
+   "sha256": "94ba0cb0c74bd92803923d12a34acddde71b94b1d34cc6fbd1deb5ee84552020"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke_real/molecules.csv",
+   "size": 591,
+   "sha256": "7ef3c53084f88547f8a259790dcf4e549b561fcb27cccfc8769d6fd9e4f99de4"
+  },
+  {
+   "path": "refactored_model/rl_pilot/runs/smoke_real/summary.json",
+   "size": 989,
+   "sha256": "88d78d5e8beec5e3942b1a027503dcf9d1398d6ab0b5f33d30d6f0d291d079d7"
+  },
+  {
+   "path": "refactored_model/checkpoint_exemplar_rl_r3_pfdhfr_tuned.pt",
+   "size": 18780411,
+   "sha256": "699879068e09a30a6b7b1a24bdb9b45baed30efad61e45cf68812f5805b1d739"
+  }
+ ]
+}

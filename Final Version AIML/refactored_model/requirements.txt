@@ -1,0 +1,12 @@
+# Python 3.13.14.  Versions are those of the working environment (pip freeze, 31 Oct 2026); only packages this project imports are listed.
+numpy==2.5.1
+pandas==3.0.5
+scipy==1.18.1
+rdkit==2026.3.5
+meeko==0.8.0              # ligand preparation for Vina; also pulls in gemmi
+gemmi==0.7.5
+neoralab-sascorer==0.1.5  # synthetic-accessibility score (only used by the retired ID-based reward in legacy/)
+tqdm==4.70.0
+# PyTorch was installed as 2.13.0+cu130 (CUDA 13 build):  pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cu130
+torch==2.13.0
+# external program (not a pip package): AutoDock Vina 1.2.7 (vina.exe), found by config.py

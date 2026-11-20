@@ -1,0 +1,52 @@
+{
+ "tag": "r3",
+ "stop_reason": "time box",
+ "steps_done": 55,
+ "minutes": 125.6,
+ "pct_mean_first5": 0.7773,
+ "pct_mean_last10": 0.7215,
+ "validity_first5": 0.722,
+ "validity_last5": 0.861,
+ "ha_last5": [
+  23.46,
+  23.19,
+  22.94,
+  23.6,
+  24.72
+ ],
+ "kl_last5": [
+  0.28473,
+  0.28404,
+  0.30793,
+  0.29265,
+  0.29509
+ ],
+ "checkpoint": "C:\\Users\\sidha\\Desktop\\AI ML code\\refactored_model\\rl_pilot\\runs\\r3\\checkpoint_rl_r3.pt",
+ "args": {
+  "tag": "r3",
+  "checkpoint": "C:\\Users\\sidha\\Desktop\\AI ML code\\refactored_model\\checkpoint_exemplar_seed_v3_holdout.pt",
+  "csv": "C:\\Users\\sidha\\Desktop\\AI ML code\\refactored_model\\CleanedData.csv",
+  "decoys_from": "dock_results_malaria_ho70_s1.csv",
+  "steps": 150,
+  "max_minutes": 120.0,
+  "batch": 128,
+  "lr": 0.0001,
+  "kl": 0.05,
+  "temperature": 0.7,
+  "max_lib_sim": 0.85,
+  "repeat_window": 2000,
+  "workers": 3,
+  "vina_cpu": -1,
+  "dock_timeout": 300.0,
+  "min_validity": 0.3,
+  "save_every": 25,
+  "seed": 0,
+  "reward": "gated",
+  "min_sim": 0.4,
+  "size_window": 4,
+  "fail_reward": -0.5,
+  "probe_steps": 0,
+  "smoke": false,
+  "fake_dock": false
+ }
+}

@@ -1,0 +1,61 @@
+{
+ "box_pad_A": 0.0,
+ "cross": false,
+ "ensemble": false,
+ "diagnose": false,
+ "cases": {
+  "malaria_t89515": {
+   "working_receptor": "PfDHFR",
+   "verdict": "PASS (size-corrected AUC 0.70, CI 0.62-0.77)",
+   "conditioned_vs_baseline": null,
+   "receptors": {
+    "PfDHFR": {
+     "calibration": {
+      "label": "PfDHFR",
+      "case": "malaria_t89515",
+      "status": "usable",
+      "trusted": true,
+      "n_act": 46,
+      "n_dec": 138,
+      "reference": -9.326,
+      "decision": "research stratum only",
+      "n_decision": 35,
+      "auc": 0.719047619047619,
+      "se": 0.05244559148440127,
+      "auc_sc": 0.7271221532091098,
+      "se_sc": 0.052056491904701636,
+      "ef20": 1.6946938775510203,
+      "auc_all": 0.7391304347826088,
+      "auc_sc_all": 0.7476370510396976,
+      "act_med": -8.498,
+      "dec_med": -7.7245,
+      "ha_a": 21.0,
+      "ha_d": 22.0,
+      "le_act": 0.3946838736877697,
+      "underpowered": false,
+      "auc_nocc": 0.7271221532091098,
+      "has_cc": true,
+      "potency_rho": NaN,
+      "potency_n": 0,
+      "potency_filter_nm": null,
+      "strata": {
+       "curated": {
+        "auc_sc": 0.8043478260869565,
+        "n": 10
+       },
+       "clinical": {
+        "auc_sc": NaN,
+        "n": 1
+       },
+       "research": {
+        "auc_sc": 0.7271221532091098,
+        "n": 35
+       }
+      }
+     },
+     "redock": null
+    }
+   }
+  }
+ }
+}

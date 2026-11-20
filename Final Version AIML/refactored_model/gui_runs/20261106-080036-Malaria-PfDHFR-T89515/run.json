@@ -1,0 +1,49 @@
+{
+ "id": "20261106-080036-Malaria-PfDHFR-T89515",
+ "params": {
+  "target_key": "malaria_t89515",
+  "disease": "",
+  "target": "T89515",
+  "n": 100,
+  "temperature": 0.7,
+  "seed": 2,
+  "checkpoint": "checkpoint_exemplar_rl_r3_pfdhfr_tuned.pt",
+  "extra_library": "",
+  "stages": [
+   "generate",
+   "baseline",
+   "dock"
+  ],
+  "title": "Malaria - PfDHFR (T89515)"
+ },
+ "status": "done",
+ "started": 1793914236.6540303,
+ "ended": 1793920795.7526274,
+ "stages": [
+  {
+   "name": "generate",
+   "label": "Generate molecules",
+   "status": "done",
+   "note": "",
+   "progress": 1.0,
+   "last": "similarity to seed: median 0.50 (analog range 0.40-0.80: 78%)"
+  },
+  {
+   "name": "baseline",
+   "label": "Random-seed baseline",
+   "status": "done",
+   "note": "",
+   "progress": 1.0,
+   "last": "similarity to seed: median 0.44 (analog range 0.40-0.80: 54%)"
+  },
+  {
+   "name": "dock",
+   "label": "Dock at the validated receptor",
+   "status": "done",
+   "note": "",
+   "progress": 1.0,
+   "last": "per-molecule results: C:\\Users\\sidha\\Desktop\\Final Version AIML\\refactored_model\\gui_runs\\20261106-080036-Malaria-PfDHFR-T89515\\dock_results"
+  }
+ ],
+ "demo": false
+}
